@@ -31,7 +31,7 @@
                     <script type="text/javascript">
                     var texto = '{{ session()->get("success") }}';
                         Swal.fire(
-                            'Good job!',
+                            'Bom trabalho!',
                             texto,
                             'success',
                         )
@@ -41,9 +41,10 @@
             @if(session()->has('error'))
                 @if(session()->get('error')) 
                     <script type="text/javascript">
+                    var texto = '{{ session()->get("error") }}';
                         Swal.fire(
-                            'Good job!',
-                            'You clicked the button!',
+                            'Ops!',
+                            texto,
                             'error',
                         )
                     </script>
@@ -51,7 +52,7 @@
             @endif               
 			<div class="wrap-login100">                 
 				<div class="login100-pic js-tilt" data-tilt>
-					<img src="../images/turingMachine.gif" alt="IMG">
+					<img src="../images/nyan-cat.gif" alt="IMG">
                 </div>                                
                 <form class="login100-form validate-form" method="post" action="{{url('/turing')}}">      
                     @csrf          
@@ -62,21 +63,28 @@
                             <input class="input100" type="text" name="estados" placeholder="Estados (Ex.: Q0, Q1, Q2..)">
                             <span class="focus-input100"></span>
                             <span class="symbol-input100">
-                                <i class="fa fa-cogs" aria-hidden="true"></i>
+                                <i aria-hidden="true">Q</i>
                             </span>
                         </div>
                         <div class="wrap-input100 validate-input">
                             <input class="input100" type="text" name="finais" placeholder="Estado Final (Ex.: Q2)">
                             <span class="focus-input100"></span>
                             <span class="symbol-input100">
-                                <i class="fa fa-cogs" aria-hidden="true"></i>
+                                <i aria-hidden="true">&sube;</i>
+                            </span>
+                        </div>
+                        <div class="wrap-input100 validate-input">
+                            <input class="input100" type="text" name="alfabeto" placeholder="Alfabeto (Ex.: a, b, c..)">
+                            <span class="focus-input100"></span>
+                            <span class="symbol-input100">
+                                <i aria-hidden="true">&Gamma;</i>
                             </span>
                         </div>
                         <div class="wrap-input100 validate-input">
                             <input class="input100" type="text" name="entrada" placeholder="Entrada (Ex.: 1100111)">
                             <span class="focus-input100"></span>
                             <span class="symbol-input100">
-                                <i class="fa fa-cogs" aria-hidden="true"></i>
+                                <i aria-hidden="true">&Sigma;</i>
                             </span>
                         </div>
                         <div class="conteudo">
@@ -84,7 +92,7 @@
                                 <input class="input100" type="text" name="transicao1" placeholder="Transições (Q0,1(Q1,0,R))">
                                 <span class="focus-input100"></span>
                                 <span class="symbol-input100">
-                                    <i class="fa fa-cogs" aria-hidden="true"></i>
+                                    <i aria-hidden="true">&delta;</i>
                                 </span>
                             </div>
                         </div>
@@ -143,7 +151,7 @@
                                 '<input class="input100" type="text" name="transicao'+ (length+1) + '" placeholder="Transições (Q0,1(Q1,0,R))">'+
                                 '<span class="focus-input100"></span>'+
                                 '<span class="symbol-input100">'+
-                                '<i class="fa fa-cogs" aria-hidden="true"></i></span></div>'+
+                                '<i aria-hidden="true">&delta;</i></span></div>'+
                                 '<a href="#" class="remove_field" style="margin-left: 10%; color: red;">Remover</a></div>'); 
                 }
             });
